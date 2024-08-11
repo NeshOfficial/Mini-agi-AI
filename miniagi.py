@@ -6,7 +6,20 @@ def check_palindrome(input_string):
     normalized_string = ''.join(
         char.lower() for char in input_string if char.isalnum()
     )
-
+def check_palindrome(input_string):
+    # Normalize the input: remove spaces, punctuation, and convert to lowercase
+    normalized_string = ''.join(
+        char.lower() for char in input_string if char.isalnum()
+    )
+    # Reverse the string
+    # Reverse the string
+    # Reverse the string
+    # Reverse the string
+    # Reverse the string
+    # Reverse the string
+    # Reverse the string
+    # Reverse the string
+    # Reverse the string
     # Reverse the string
     reversed_string = normalized_string[::-1]
 
