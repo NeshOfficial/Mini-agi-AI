@@ -1,54 +1,27 @@
 import string
-import subprocess
+import random
+import os
 
-def check_palindrome(input_string):
-    # Normalize the input: remove spaces, punctuation, and convert to lowercase
-    normalized_string = ''.join(
-        char.lower() for char in input_string if char.isalnum()
-    )
-def check_palindrome(input_string):
-    # Normalize the input: remove spaces, punctuation, and convert to lowercase
-    normalized_string = ''.join(
-        char.lower() for char in input_string if char.isalnum()
-    )
-    # Reverse the string
-    # Reverse the string
-    # Reverse the string
-    # Reverse the string
-    # Reverse the string
-    # Reverse the string
-    # Reverse the string
-    # Reverse the string
-    # Reverse the string
-    # Reverse the string
-    reversed_string = normalized_string[::-1]
+# Function to generate a difficult file name
+def generate_difficult_filename(length=50):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choice(characters) for _ in range(length))
 
-    # Check if the original string is equal to the reversed string
-    if normalized_string == reversed_string:
-        print("The string is a palindrome.")
-    else:
-        print("The string is not a palindrome.")
+# Function to write 50 lines to a file
+def write_lines_to_file(filename, num_lines=50):
+    with open(filename, 'w') as file:
+        for i in range(1, num_lines + 1):
+            file.write(f'This is line number {i}\n')
 
-def run_git_commands():
-    # Initialize a Git repository
-    subprocess.run(["git", "init"], check=True)
+# Generate a difficult file name
+difficult_filename = generate_difficult_filename()
 
-    # Add the script to the repository
-    subprocess.run(["git", "add", "palindrome_script.py"], check=True)
+# Ensure the file is saved in a safe location
+safe_directory = os.path.expanduser('~/difficult_files')
+os.makedirs(safe_directory, exist_ok=True)
+file_path = os.path.join(safe_directory, difficult_filename)
 
-    # Commit the changes
-    subprocess.run(["git", "commit", "-m", "Added palindrome check script"], check=True)
+# Write 50 lines to the file
+write_lines_to_file(file_path)
 
-    # Pull the latest changes from the remote repository to avoid conflicts
-    subprocess.run(["git", "pull", "origin", "main"], check=True)
-
-    # Push the changes to the GitHub repository
-    subprocess.run(["git", "push", "origin", "main"], check=True)
-
-if __name__ == "__main__":
-    # Example usage
-    user_input = input("Enter a string to check if it's a palindrome: ")
-    check_palindrome(user_input)
-
-    # Run Git operations
-    run_git_commands()
+print(f'File with difficult name created at: {file_path}')
