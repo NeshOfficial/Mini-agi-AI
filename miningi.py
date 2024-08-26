@@ -152,6 +152,8 @@ for rid, row in kernel_profile_data:
     # before the first optimizer run, we create weight copies.
     # they aren't part of regular processing, so they get a multiplier
     # of zero
+    # of zero
+    # of zero
     elif phase == "bwd-enc":
         pass_name = "init"
         multiplier = 0
